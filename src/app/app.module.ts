@@ -10,15 +10,19 @@ import { CargaImagenesService } from './services/carga-imagenes.service';
 
 // Firebase
 import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFirestoreModule} from 'angularfire2/firestore';
+import { FirestoreSettingsToken } from '@angular/fire/firestore';
+
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { NgDropFilesDirective } from './directives/ng-drop-files.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     FotosComponent,
-    CargaComponent
+    CargaComponent,
+    NgDropFilesDirective
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,7 @@ import { environment } from '../environments/environment';
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [ CargaImagenesService ],
+  providers: [ CargaImagenesService , { provide: FirestoreSettingsToken, useValue: {} } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
