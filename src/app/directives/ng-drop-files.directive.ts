@@ -32,9 +32,8 @@ export class NgDropFilesDirective {
           return;
       }
       this._prevenirDetener( event );
-
+    
       this._extraerArcivos( transferencia.files );
-      console.log( this.archivos );
       this.mouseSobre.emit( false );
   }
 

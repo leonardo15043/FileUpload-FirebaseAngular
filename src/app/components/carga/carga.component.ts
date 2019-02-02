@@ -15,13 +15,21 @@ export class CargaComponent implements OnInit {
 
   constructor(
     public _cargaImagenes: CargaImagenesService
-  ) { }
+  ) {
+    console.log( this.archivos );
+
+  }
 
   ngOnInit() {
+
   }
 
   cargarImagenes() {
     this._cargaImagenes.cargarImagenesFirebase( this.archivos );
+  }
+
+  limpiarArchivos() {
+    this.archivos = [];
   }
 
 }
